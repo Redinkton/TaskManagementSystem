@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure
 {
-    public static class DependencyInjection
+    public static class AppConfiguration
     {
         // The AddPersistence method for registering the database context
         public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
