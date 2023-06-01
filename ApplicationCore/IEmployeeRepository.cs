@@ -1,14 +1,14 @@
-﻿using Domain;
+﻿using Domain.Entities;
 using Task = System.Threading.Tasks.Task;
 
 namespace Application
 {
     public interface IEmployeeRepository
     {
-        Task<Employee> GetUserById(int id);
-        Task<Employee> CreateUser(Employee user);
-        Task<Employee> UpdateUser(Employee user);
-        Task DeleteUser(Employee employee);
+        Task<Employee> GetById(int id);
+        Task<Employee> Create(Employee user);
+        Task<Employee> Update(Employee user);
+        Task Delete(Employee employee);
     }
 }
 
