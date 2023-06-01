@@ -14,7 +14,7 @@ namespace Infrastructure.Repositories
         }
 
         // This is registration
-        public async Task<Employee> CreateUser(Employee employee)
+        public async Task<Employee> Create(Employee employee)
         {
             if (_appDbContext.Employees.FindAsync(employee.Id) == null)
             {
@@ -34,18 +34,18 @@ namespace Infrastructure.Repositories
             }
         }
 
-        public async Task DeleteUser(Employee employee)
+        public async Task Delete(Employee employee)
         {
             _appDbContext.Employees.Remove(employee);
             await _appDbContext.SaveChangesAsync();
         }
 
-        public async Task<Employee> GetUserById(int id)
+        public async Task<Employee> GetById(int id)
         {
             return await _appDbContext.Employees.FindAsync(id);
         }
 
-        public async Task<Employee> UpdateUser(Employee user)
+        public async Task<Employee> Update(Employee user)
         {
             if (user != null)
             {
