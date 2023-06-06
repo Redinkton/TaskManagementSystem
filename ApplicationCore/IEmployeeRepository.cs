@@ -6,7 +6,6 @@ namespace Application
     public interface IEmployeeRepository
     {
         Task<Employee> GetById(int id);
-        Task<Employee> Create(Employee user);
         Task<Employee> Update(Employee user);
         Task Delete(Employee employee);
     }

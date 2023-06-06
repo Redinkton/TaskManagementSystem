@@ -1,17 +1,17 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using WebUI.Areas.Identity.Data;
 using WebUI.Models;
 
 namespace WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class EmployeeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<EmployeeController> _logger;
+        private readonly UserManager<Employee> _userManager;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager)
+        public EmployeeController(ILogger<EmployeeController> logger, UserManager<Employee> userManager)
         {
             _logger = logger;
             _userManager = userManager;

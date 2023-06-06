@@ -1,13 +1,15 @@
-using Microsoft.AspNetCore.Identity;
+using Domain.Entities;
+using Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using WebUI.Areas.Identity.Data;
-using WebUI.Data;
+
+
+
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("WebUIDBContextConnection") ?? throw new InvalidOperationException("Connection string 'WebDBContextConnection' not found.");
 
-builder.Services.AddDbContext<WebDBContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<WebDBContext>();
+builder.Services.AddDefaultIdentity<Employee>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<AppDbContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

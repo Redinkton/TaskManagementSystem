@@ -5,51 +5,33 @@ using Task = System.Threading.Tasks.Task;
 
 namespace Infrastructure.Repositories
 {
-    internal class EmployeeRepository : IEmployeeRepository
+    public class EmployeeRepository : IEmployeeRepository
     {
-        private readonly AppDbContext _appDbContext;
-        public EmployeeRepository(AppDbContext appDbContext)
+        private readonly UserManager<Employee> _userManager;
+        public EmployeeRepository(UserManager<Employee> userManager)
         {
-            _appDbContext = appDbContext;
-        }
-
-        // This is registration
-        public async Task<Employee> Create(Employee employee)
-        {
-            if (_appDbContext.Employees.FindAsync(employee.Id) == null)
-            {
-                await _appDbContext.Employees.AddAsync(employee);
-                await _appDbContext.SaveChangesAsync();
-
-                return employee;
-            }
-            else if (_appDbContext.Employees.FindAsync(employee.Id) != null)
-            {
-                var existingEmployee = await _appDbContext.Employees.FindAsync(employee.Id);
-                return existingEmployee;
-            }
-            else
-            {
-                throw new InvalidOperationException("Forbidden");
-            }
+            _userManager = userManager;
         }
 
         public async Task Delete(Employee employee)
         {
-            _appDbContext.Employees.Remove(employee);
-            await _appDbContext.SaveChangesAsync();
+            var result = await _userManager.DeleteAsync(employee);
+            if (!result.Succeeded)
+            {
+                throw new Exception($"Cannot delete user with ID '{employee.Id}'.");
+            }
         }
 
         public async Task<Employee> GetById(int id)
         {
-            return await _appDbContext.Employees.FindAsync(id);
+            return await _userManager.FindByIdAsync(id.ToString());
         }
 
         public async Task<Employee> Update(Employee user)
         {
             if (user != null)
             {
-                _appDbContext.Employees.Update(user);
+                await _userManager.UpdateAsync(user);
                 return user;
             }
             else
