@@ -1,8 +1,6 @@
 using Domain.Entities;
-using Infrastructure;
 using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 namespace WebUI.Pages.Empl
 {
@@ -10,7 +8,7 @@ namespace WebUI.Pages.Empl
     {
         private readonly EmployeeService _employeeService;
 
-        public IndexModel(EmployeeService employeeService, AppDbContext a)
+        public IndexModel(EmployeeService employeeService)
         {
             _employeeService = employeeService;
         }
@@ -19,11 +17,6 @@ namespace WebUI.Pages.Empl
         public string DateSort { get; set; }
 
         public IList<Employee> Employees { get; set; }
-
-        //public async System.Threading.Tasks.Task OnGetAsync()
-        //{
-        //    Employees = await _employeeService.GetEmployeesAsync();
-        //}
 
         public async System.Threading.Tasks.Task OnGetAsync(string sortOrder)
         {
@@ -47,7 +40,6 @@ namespace WebUI.Pages.Empl
                     employees = employees.OrderBy(s => s.LastName).ToList();
                     break;
             }
-
             Employees = employees;
         }
     }

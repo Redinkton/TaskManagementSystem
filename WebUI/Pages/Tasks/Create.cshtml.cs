@@ -1,7 +1,4 @@
 using Infrastructure.Repositories;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 namespace WebUI.Pages.Tasks
 {
