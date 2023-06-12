@@ -13,7 +13,7 @@ namespace Infrastructure
         {
         }
 
-        //public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Dependency> Dependencies { get; set; }
