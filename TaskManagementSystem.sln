@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "WebUI\WebUI.csproj", "{E4C22989-1FEF-414F-9D84-AF79370C686D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.UnitTests", "TaskManagementSystem.Tests\Application.UnitTests.csproj", "{EA17FBAE-6B6E-452E-8810-7109F1709CD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{E4C22989-1FEF-414F-9D84-AF79370C686D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4C22989-1FEF-414F-9D84-AF79370C686D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4C22989-1FEF-414F-9D84-AF79370C686D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA17FBAE-6B6E-452E-8810-7109F1709CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA17FBAE-6B6E-452E-8810-7109F1709CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA17FBAE-6B6E-452E-8810-7109F1709CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA17FBAE-6B6E-452E-8810-7109F1709CD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{092ECDC6-0481-4B4B-98D8-D16BE3F5CABC} = {D58F4EB8-2B67-4940-93A8-2897EBB9B89E}
 		{6FFFCA57-1EB4-439E-A6F6-D03815D1EAFA} = {D58F4EB8-2B67-4940-93A8-2897EBB9B89E}
 		{E4C22989-1FEF-414F-9D84-AF79370C686D} = {D58F4EB8-2B67-4940-93A8-2897EBB9B89E}
+		{EA17FBAE-6B6E-452E-8810-7109F1709CD9} = {B9C52221-41C6-42A5-A7AC-C63DC750DAF1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AD87F558-B510-4BE0-A7F2-AA3BD484C314}

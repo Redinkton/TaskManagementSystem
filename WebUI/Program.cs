@@ -1,5 +1,7 @@
+using Application;
 using Domain.Entities;
 using Infrastructure;
+using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -10,7 +12,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(conn
 
 builder.Services.AddDefaultIdentity<Employee>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<AppDbContext>();
 
-builder.Services.AddScoped<Infrastructure.Repositories.EmployeeService>();
+builder.Services.AddScoped<IEmployeeService, TaskService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
 

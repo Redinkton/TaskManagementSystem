@@ -1,3 +1,4 @@
+using Application;
 using Domain.Entities;
 using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -6,9 +7,9 @@ namespace WebUI.Pages.Empl
 {
     public class IndexModel : PageModel
     {
-        private readonly EmployeeService _employeeService;
+        private readonly IEmployeeService _employeeService;
 
-        public IndexModel(EmployeeService employeeService)
+        public IndexModel(IEmployeeService employeeService)
         {
             _employeeService = employeeService;
         }
@@ -23,7 +24,7 @@ namespace WebUI.Pages.Empl
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             DateSort = sortOrder == "Task" ? "task_desc" : "Task";
 
-            var employees = await _employeeService.GetAllUsersForSort();
+            var employees = await _employeeService.GetAll();
 
             switch (sortOrder)
             {

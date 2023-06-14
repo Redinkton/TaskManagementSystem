@@ -7,7 +7,7 @@ namespace Application
     public interface IEmployeeService
     {
         // Task<IList<Employee>> GetEmployeesAsync();
-        Task<List<Employee>> GetAllUsersForSort();
+        Task<List<Employee>> GetAll();
 
     }
 }
